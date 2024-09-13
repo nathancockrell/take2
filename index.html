@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take2</title>
+    <style>
+        .main-div{max-height: 20vh;
+            overflow-y: auto;
+            border:1px solid black;
+            padding:1rem;
+            /* margin-bottom:1rem; */
+        }
+        h3{
+            margin:0;
+            margin-top:2rem;
+        }
+    </style>
+</head>
+<body>
+    <button id="addEntry">Add Entry</button>
+    <button id="addCounter">Add Counter</button>
+    <button id="addLabel">Add Label</button>
+    <button id="addCounterDiv">Add Counter Div</button>
+    <input type="text" placeholder="#" id="val">
+    <h3>Labels</h3>
+    <div id="labelsDiv" class="main-div">
+
+    </div>
+    <h3>Counters</h3>
+    <div id="counterDiv"class="main-div">
+
+    </div>
+    <h3>CounterDivs</h3>
+    <input type="number" id="divInput" placeholder="value">
+    <div id="counterDivsDiv" class="main-div">
+
+    </div>
+    <h3>Entries</h3>
+    <div id="entryDiv" class="main-div">
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>
