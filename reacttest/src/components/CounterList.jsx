@@ -7,13 +7,12 @@ export default function CounterList({counters}) {
     {counters.map((counter, i)=>{
         return (
             <div key={i} style={{border:"1px solid black", borderRadius:"5px"}}>
-                <span>{counter.name}|</span>
+                <span class="counter-name">{counter.name}|</span>
                 <div className="test">
                     {counter.labels.map((label, i)=>{
                         return <span key={i}>|{label}|</span>
                     })};
                 </div>
-                <span>{counter.amount}</span>
   
             </div>
         );

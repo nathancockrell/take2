@@ -58,20 +58,41 @@ function App() {
   function addDashboard() {
     setDashboards(prev=>prev+1);
   }
+  function showHome(){
+    console.log("showhome")
+  }
 
   return (
     <div>
+      <div id="navbar">
+        <button onClick={showHome}>Home</button>
+        <button onClick={showHome}>Dashboards</button>
+        <button onClick={showHome}>Quests</button>
+        <button onClick={showHome}>Profile</button>
+      </div>
+
+    <div id="main-div">
+    <div class="buttons-div">
     <button onClick={addLabel}>Add Label</button>
     <button onClick={addEntry}>Add Entry</button>
     <button onClick={addCounter}>Add Counter</button>
     <button onClick={addDashboard}>Add Dashboard</button>
+    </div>
+    
+    <div class="dashboards-div">
     {[...Array(dashboards)].map(i=>{
       return <Dashboard user={{entries:myUser.stats, counters:myUser.counters, labels:myUser.labels}}></Dashboard>
     })}
+    </div>
   
+    <div class="lists-div">
     <CounterList counters={myUser.counters}></CounterList>
     <Entries entries={myUser.stats}></Entries>
     </div>
+    </div>
+
+    </div>
+    
   )
 }
 

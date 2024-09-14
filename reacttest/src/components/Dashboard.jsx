@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import LabelDiv from './LabelDiv';
+import CounterDiv from './CounterDiv';
 
 export default function Dashboard({user}) {
   console.log(user);
@@ -13,11 +14,18 @@ export default function Dashboard({user}) {
         return [...prev, filter];
       });
     }
+    function addCounterDiv() {
+      const filter = prompt("filter");
+      setCounterDivs((prev)=>{
+        return [...prev, filter];
+      });
+    }
 
   return (
     <div>
-    <div>Dashboard</div>
+    <h1>Dashboard</h1>
       <button onClick={addLabelDiv}>Add Label Div</button>
+      <button onClick={addCounterDiv}>Add Counter Div</button>
       {labelDivs.map((filter, i)=>{
         return (
           <LabelDiv key={i} 
@@ -28,6 +36,18 @@ export default function Dashboard({user}) {
           })}
           filter={filter}
           ></LabelDiv>
+        );
+      })}
+      {counterDivs.map((filter, i)=>{
+        return (
+          <CounterDiv key={i} 
+          counters={user.counters.filter((counter)=>{
+            console.log(counter.name,"test", filter);
+            return counter.name.includes(filter) || filter=="";
+            // console.log(filter.length, "filter");
+          })}
+          filter={filter}
+          ></CounterDiv>
         );
       })}
       
