@@ -60,7 +60,7 @@ addCounterDiv.addEventListener("click", ()=>{
 
 
 
-function loadDivs(){
+export function loadDivs(){
     user.updateLabels();
     labelsDiv.innerHTML=``;
     for(let i=0; i<user.labels.length; i++){

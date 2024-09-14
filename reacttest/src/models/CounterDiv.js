@@ -1,5 +1,4 @@
-import user from "../user.js";
-import { loadDivs } from "../script.js";
+import user from "./User.js";
 
 export default class CounterDiv {
     constructor(filter){
@@ -41,7 +40,6 @@ export default class CounterDiv {
                 button.addEventListener("click", ()=>{
                     let value=document.getElementById("divInput").value;
                     user.addEntry(counter.name,counter.labels,value);
-                    loadDivs();
                 })
                 this.buttons.push(button);
     }
