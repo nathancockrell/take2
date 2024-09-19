@@ -2,8 +2,8 @@ import React, {useState} from 'react'
 import LabelDiv from './LabelDiv';
 import CounterDiv from './CounterDiv';
 
-export default function Dashboard({user}) {
-  console.log(user);
+export default function Dashboard({user, index}) {
+  // console.log(user);
   
     const [counterDivs, setCounterDivs] = useState([]);
     const [labelDivs, setLabelDivs] = useState([]);
@@ -23,7 +23,7 @@ export default function Dashboard({user}) {
 
   return (
     <div>
-    <h1>Dashboard</h1>
+    <h1>Dashboard {index}</h1>
       <button onClick={addLabelDiv}>Add Label Div</button>
       <button onClick={addCounterDiv}>Add Counter Div</button>
       {labelDivs.map((filter, i)=>{
@@ -36,7 +36,7 @@ export default function Dashboard({user}) {
           })}
           filter={filter}
           ></LabelDiv>
-        );
+        )
       })}
       {counterDivs.map((filter, i)=>{
         return (
@@ -48,7 +48,7 @@ export default function Dashboard({user}) {
           })}
           filter={filter}
           ></CounterDiv>
-        );
+        )
       })}
       
     </div>

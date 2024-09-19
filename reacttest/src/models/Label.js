@@ -10,9 +10,9 @@ export default class Label {
 
     updateTotal(){
         this.total=0;
-        for(let i=0;i<user.stats.length;i++){
-            if(user.stats[i].labels.includes(this.name)){
-                this.total+=user.stats[i].value;
+        for(let i=0;i<user.entries.length;i++){
+            if(user.entries[i].labels.includes(this.name)){
+                this.total+=user.entries[i].value;
             };
             
         }

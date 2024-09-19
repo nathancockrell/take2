@@ -6,8 +6,9 @@ class User {
     constructor(){
         this.counters=[];
         this.labels=[];
-        this.stats=[];
+        this.entries=[];
         this.counterDivs=[];
+        this.dashboards=[];
     }
     addCounter(counter){
         this.counters.push(counter);
@@ -24,7 +25,7 @@ class User {
             labels1.push(labels);
         }
         const stat = new Entry(name,labels1,value)
-        this.stats.push(stat);
+        this.entries.push(stat);
     }
     addCounterDiv(filter){
         const div = new CounterDiv(filter);
@@ -32,11 +33,11 @@ class User {
     }
 
     updateLabels(){
-        // Automatically add new label from stats
-        for(let i =0;i<this.stats.length;i++){
-            for(let j =0;j<this.stats[i].labels.length;j++){
-                if(!this.labels.find(x=>x.name==this.stats[i].labels[j])){
-                    const label = new Label(this.stats[i].labels[j])
+        // Automatically add new label from entries
+        for(let i =0;i<this.entries.length;i++){
+            for(let j =0;j<this.entries[i].labels.length;j++){
+                if(!this.labels.find(x=>x.name==this.entries[i].labels[j])){
+                    const label = new Label(this.entries[i].labels[j])
                     
                     this.labels.push(label)
                 }else{
@@ -48,7 +49,7 @@ class User {
         for(let i =0;i<this.counters.length;i++){
             for(let j =0;j<this.counters[i].labels.length;j++){
                     console.log("this.labels", this.labels)
-                    console.log("stats[i].LABELs", this.counters[i].labels);
+                    console.log("entries[i].LABELs", this.counters[i].labels);
                 if(!this.labels.find(x=>x.name==this.counters[i].labels[j])){
                     const label = new Label(this.counters[i].labels[j])
                     
@@ -58,11 +59,13 @@ class User {
                 }
             }
         }
-
         // Update Label Tota-- ACTUALLY that's in the label.js
         for(let i =0;i<this.labels.length;i++){
             this.labels[i].updateTotal();
         }
+    }
+    updateCounters(){
+
     }
 }
 const user = new User();
